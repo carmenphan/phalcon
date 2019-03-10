@@ -2,6 +2,9 @@
         use Phalcon\Http\Request;
 
         $request = new Request();
+        $protocol = stripos($_SERVER['SERVER_PROTOCOL'],'https') === true ? 'https://' : 'http://';
+        $base_url =  $protocol . $request->getServer("HTTP_HOST");
+        
     ?>
 <!DOCTYPE html>
 <html>
@@ -14,8 +17,8 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="shortcut icon" type="image/x-icon" href="<?php echo $this->url->get('img/favicon.ico')?>"/>
         <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-        <link rel="stylesheet" href="<?="http://".$request->getServer("HTTP_HOST")?>/public/css/datatables.css" >
-        <link rel="stylesheet" href="<?="http://".$request->getServer("HTTP_HOST")?>/public/css/jquery-ui.css" >
+        <link rel="stylesheet" href="<?=$base_url?>/public/css/datatables.css" >
+        <link rel="stylesheet" href="<?=$base_url?>/public/css/jquery-ui.css" >
     </head>
     
     <body>
@@ -23,12 +26,12 @@
             <?php echo $this->getContent(); ?>
         </div>
         <!-- jQuery first, then Popper.js, and then Bootstrap's JavaScript -->
-        <script src="<?="http://".$request->getServer("HTTP_HOST")?>/public/js/jquery.js" ></script>
+        <script src="<?=$base_url?>/public/js/jquery.js" ></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-        <script src="<?="http://".$request->getServer("HTTP_HOST")?>/public/js/jquery-ui.js" ></script>
-        <script src="<?="http://".$request->getServer("HTTP_HOST")?>/public/js/jquery.validate.js" ></script>
-        <script src="<?="http://".$request->getServer("HTTP_HOST")?>/public/js/datatables.js" ></script>
-        <script src="<?="http://".$request->getServer("HTTP_HOST")?>/public/js/system.js" ></script>
+        <script src="<?=$base_url?>/public/js/jquery-ui.js" ></script>
+        <script src="<?=$base_url?>/public/js/jquery.validate.js" ></script>
+        <script src="<?=$base_url?>/public/js/datatables.js" ></script>
+        <script src="<?=$base_url?>/public/js/system.js" ></script>
     </body>
 </html>
