@@ -1,0 +1,102 @@
+<style >
+    .warpper-add-product th {
+        background-color :#e9ecef;
+    }
+    a {
+        cursor:pointer;
+    }
+    .msg-error {
+        color : red;
+    }
+</style >
+<div class  = "warpper-add-product"> 
+    <div class="jumbotron">
+        <h1>Human Resource Management</h1>      
+        <p>Create New Employee</p>
+    </div>
+    <?php if ($this->flashSession->output()):?>
+    
+        <?=$this->flashSession->output()?>
+  
+    <?php endif;?>
+    <form method = "POST" id = "form-create-employee"> 
+    <table  class=" table table-bordered ">
+    
+            <tr>
+                <th>Full Name : </th>
+                <td>
+                    <input class="form-control" type = "text" placeholder = "Name" name = "employee[fullname]" value = "<?=$employee_data->fullName?>" required/>
+                    <div class = "msg-error"></div>
+                </td>
+                
+            </tr>
+            <tr>
+                <th>Address : </th>
+                <td>
+                    <input class="form-control" type = "text" placeholder = "Address" name = "employee[address]" value = "<?=$employee_data->address?>" required/>
+                    <div class = "msg-error"></div>
+                </td>
+                
+            </tr>
+            <tr>
+                <th>BirthDay  : </th>
+                <td>
+                    <input class="form-control" id = "birthday" type = "text" placeholder = "BirthDay" name = "employee[birthday]" value = "<?=date("d-m-Y",strtotime($employee_data->brithday))?>" required/>
+                </td>
+                
+            </tr>
+            <tr>
+                <th>Position  : </th>
+                <td>
+                    <div class = "label-name-position"><?=$employee_data->position ? $employee_data->position ->name : "";?></div>
+                    <a id = "tagSelectPosition" style = "cursor:pointer ; color : #3399ff" >View Position</a>
+                    <input class="form-control" type = "text" style = "display :none" placeholder = "position" id = "value-position-save" name = "employee[position]" value = "<?=$employee_data->position_id?>" required/>
+                    <!-- <select class="form-control" id = "tagSelectPosition" name = "employee[position]" style = "cursor:pointer">
+                        <option style = "text-align :center" >----- Select Position -----</option>
+                    </select> -->
+                    <div class = "msg-error"></div>
+                </td>
+                
+            </tr>
+            <tr>
+                <th>Department  : </th>
+                <td>
+                    <!-- <input class="form-control" type = "text" placeholder = "Department" name = "employee[department]"/> -->
+                    <div class = "label-name-department"><?=$employee_data->department ? $employee_data->department ->name : "";?></div>
+                    <a id = "tagSelectDeparment" style = "cursor:pointer ; color : #3399ff" >View Department</a>
+                    <input class="form-control" type = "text" style = "display :none" placeholder = "department" id = "value-department-save" name = "employee[department]" value = "<?=$employee_data->department_id?>" required/>
+                    <div class = "msg-error"></div>
+                </td>
+                
+            </tr>
+            <tr>
+                <th> </th>
+                <td>
+                    <a class="btn btn-secondary" href="javascript:history.back()">Back</a> 
+                    <button type="submit" class="btn btn-success submit_button">Complete</button>
+                </td>
+                
+            </tr>
+    </table>
+        </form>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <span class = "append-button-choose-model"></span>
+      </div>
+    </div>
+
+  </div>
+</div>

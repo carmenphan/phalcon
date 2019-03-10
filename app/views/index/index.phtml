@@ -1,7 +1,41 @@
-<div class="page-header">
-    <h1>Congratulations!</h1>
+<div class="jumbotron">
+    <h1>Human Resource Management</h1>      
+    <p>System Human Resource Management</p>
 </div>
 
-<p>You're now flying with Phalcon. Great things are about to happen!</p>
-
-<p>This page is located at <code>views/index/index.phtml</code></p>
+<?php if ($this->flashSession->output()):?>
+ <div class="alert alert-success">
+    <?=$this->flashSession->output()?>
+</div>
+<?php endif;?>
+<table id="example" class="display table table-striped  table-bordered">
+    <thead class = "thead-light">
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Address</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Brithday</th>
+            <th>Create At</th>
+            <th>Update At</th>
+            <th>
+                <a  href = "./add"><img style = "width : 30px ; height : 30px padding :5px" src = "./public/img/button-add.png"></a>
+            </th>
+        </tr>
+    </thead>
+    
+    <tfoot>
+        <tr>
+            <th>Id</th>
+            <th>Full Name</th>
+            <th>Address</th>
+            <th>Position</th>
+            <th>Department</th>
+            <th>Brithday</th>
+            <th>Create At</th>
+            <th>Update At</th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>
