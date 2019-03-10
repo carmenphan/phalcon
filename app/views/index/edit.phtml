@@ -41,7 +41,7 @@
             <tr>
                 <th>BirthDay  : </th>
                 <td>
-                    <input class="form-control" id = "birthday" type = "text" placeholder = "BirthDay" name = "employee[birthday]" value = "<?=date("d-m-Y",strtotime($employee_data->brithday))?>" required/>
+                    <input class="form-control" id = "birthday" type = "text" placeholder = "BirthDay" name = "employee[birthday]" value = "<?=date("d-m-Y",strtotime($employee_data->birthday))?>" required/>
                 </td>
                 
             </tr>
@@ -72,7 +72,7 @@
             <tr>
                 <th> </th>
                 <td>
-                    <a class="btn btn-secondary" href="javascript:history.back()">Back</a> 
+                    <button type = "button" class="btn btn-secondary btn-back" >Back</button> 
                     <button type="submit" class="btn btn-success submit_button">Complete</button>
                 </td>
                 

@@ -19,7 +19,7 @@ class Employees extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    public $brithday;
+    public $birthday;
 
     /**
      *
@@ -120,7 +120,7 @@ class Employees extends \Phalcon\Mvc\Model
             array(
                 'e.fullname as fullname',
                 'e.id as id',
-                'e.brithday as brithday',
+                'e.birthday as birthday',
                 'e.address as address',
                 'e.createAt as createAt',
                 'e.updateAt as updateAt',
@@ -142,7 +142,7 @@ class Employees extends \Phalcon\Mvc\Model
             $result[$key][] = $val->address;
             $result[$key][] = $val->position_name;
             $result[$key][] = $val->department_name;
-            $result[$key][] = date("d-m-Y" , strtotime($val->brithday));
+            $result[$key][] = date("d-m-Y" , strtotime($val->birthday));
             $result[$key][] = date("d-m-Y" , strtotime($val->createAt));
             $result[$key][] = date("d-m-Y" , strtotime($val->updateAt));
          
@@ -199,7 +199,7 @@ class Employees extends \Phalcon\Mvc\Model
                 $result = "e.department_id"; 
                 break;
             case 5:
-                $result = "e.brithday"; 
+                $result = "e.birthday"; 
                 break;
             case 6:
                 $result = "e.createAt"; 

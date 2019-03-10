@@ -64,7 +64,7 @@ class IndexController extends ControllerBase
          
                 $employee                   = new Employees();
                 $employee->fullName         = !empty($array['fullname']) ? $array['fullname'] : "";
-                $employee->brithday         = !empty($array['birthday']) ? date("Y-m-d",strtotime($array['birthday'])) : "";
+                $employee->birthday         = !empty($array['birthday']) ? date("Y-m-d",strtotime($array['birthday'])) : "";
                 $employee->address          = !empty($array['address']) ? $array['address'] : "";
                 $employee->position_id        = !empty($array['position']) ? $array['position'] : "";
                 $employee->department_id    = !empty($array['department']) ? $array['department'] : "";
@@ -114,7 +114,7 @@ class IndexController extends ControllerBase
                 $employee                   = new Employees();
                 $employee->id               = $id;
                 $employee->fullName         = !empty($array['fullname']) ? $array['fullname'] : "";
-                $employee->brithday         = !empty($array['birthday']) ? date("Y-m-d",strtotime($array['birthday'])) : "";
+                $employee->birthday         = !empty($array['birthday']) ? date("Y-m-d",strtotime($array['birthday'])) : "";
                 $employee->address          = !empty($array['address']) ? $array['address'] : "";
                 $employee->position_id      = !empty($array['position']) ? $array['position'] : "";
                 $employee->department_id    = !empty($array['department']) ? $array['department'] : "";

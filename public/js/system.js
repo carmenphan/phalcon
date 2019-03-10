@@ -120,6 +120,9 @@ function renderDepartment (result){
 
 }
 $(document).ready(function(){
+    $(document).on("click",".btn-back",function(){
+        window.location.href = getHostName();
+    })
     $(document).on("click",".delete-employee",function(){
         id_employee = $(this).attr("id_employee");
         $.ajax({
@@ -144,6 +147,7 @@ $(document).ready(function(){
     $('#example').DataTable( {
         "processing": true,
         "serverSide": true,
+        "order": [[ 0, "desc" ]],
         "ajax": {
             "url": getHostName()+"getDataList",
             "data": function ( d ) {
