@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 10, 2019 at 09:04 AM
+-- Generation Time: Mar 10, 2019 at 01:53 PM
 -- Server version: 5.7.25-0ubuntu0.16.04.2
 -- PHP Version: 7.0.33-0ubuntu0.16.04.1
 
@@ -51,7 +51,7 @@ INSERT INTO `Department` (`id`, `name`) VALUES
 CREATE TABLE `Employees` (
   `id` int(11) NOT NULL,
   `fullName` varchar(254) DEFAULT NULL,
-  `brithday` date DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
   `address` varchar(254) DEFAULT NULL,
   `position_id` int(11) DEFAULT NULL,
   `department_id` int(11) DEFAULT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `Employees` (
 -- Dumping data for table `Employees`
 --
 
-INSERT INTO `Employees` (`id`, `fullName`, `brithday`, `address`, `position_id`, `department_id`, `createAt`, `updateAt`) VALUES
+INSERT INTO `Employees` (`id`, `fullName`, `birthday`, `address`, `position_id`, `department_id`, `createAt`, `updateAt`) VALUES
 (3, 'Dev 1', '2019-03-06', '26 Dang Thi Nhu , P. NTB , Q1', 1, 1, '1970-01-01 00:00:00', '2019-03-08 16:27:48'),
 (4, 'Dev 2', '2019-03-06', '26 Dang Thi Nhu , P. NTB , Q1', 1, 1, '1970-01-01 00:00:00', '2019-03-08 16:27:48'),
 (5, 'Dev 3', '2019-03-06', '26 Dang Thi Nhu , P. NTB , Q1', 1, 1, '1970-01-01 00:00:00', '2019-03-08 16:27:48'),
@@ -161,7 +161,7 @@ ALTER TABLE `Department`
 -- AUTO_INCREMENT for table `Employees`
 --
 ALTER TABLE `Employees`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `Position`
 --
