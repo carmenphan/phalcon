@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 10, 2019 at 01:53 PM
+-- Generation Time: Mar 12, 2019 at 02:43 PM
 -- Server version: 5.7.25-0ubuntu0.16.04.2
 -- PHP Version: 7.0.33-0ubuntu0.16.04.1
 
@@ -64,7 +64,6 @@ CREATE TABLE `Employees` (
 --
 
 INSERT INTO `Employees` (`id`, `fullName`, `birthday`, `address`, `position_id`, `department_id`, `createAt`, `updateAt`) VALUES
-(3, 'Dev 1', '2019-03-06', '26 Dang Thi Nhu , P. NTB , Q1', 1, 1, '1970-01-01 00:00:00', '2019-03-08 16:27:48'),
 (4, 'Dev 2', '2019-03-06', '26 Dang Thi Nhu , P. NTB , Q1', 1, 1, '1970-01-01 00:00:00', '2019-03-08 16:27:48'),
 (5, 'Dev 3', '2019-03-06', '26 Dang Thi Nhu , P. NTB , Q1', 1, 1, '1970-01-01 00:00:00', '2019-03-08 16:27:48'),
 (6, 'Dev 4', '2019-03-06', '26 Dang Thi Nhu , P. NTB , Q1', 1, 1, '1970-01-01 00:00:00', '2019-03-08 16:27:48'),
@@ -126,6 +125,27 @@ INSERT INTO `Position` (`id`, `name`) VALUES
 (3, 'Leader'),
 (4, 'Manager');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `User`
+--
+
+CREATE TABLE `User` (
+  `id` int(11) NOT NULL,
+  `username` varchar(254) DEFAULT NULL,
+  `password` varchar(254) DEFAULT NULL,
+  `name` varchar(254) DEFAULT NULL,
+  `is_active` tinyint(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `User`
+--
+
+INSERT INTO `User` (`id`, `username`, `password`, `name`, `is_active`) VALUES
+(1, 'admin', 'b24331b1a138cde62aa1f679164fc62f', 'admin', 1);
+
 --
 -- Indexes for dumped tables
 --
@@ -149,6 +169,12 @@ ALTER TABLE `Position`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `User`
+--
+ALTER TABLE `User`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -166,7 +192,12 @@ ALTER TABLE `Employees`
 -- AUTO_INCREMENT for table `Position`
 --
 ALTER TABLE `Position`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `User`
+--
+ALTER TABLE `User`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
