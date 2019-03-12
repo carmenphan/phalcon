@@ -13,6 +13,9 @@ class LoginController extends Controller
 
     public function indexAction()
     {
+        if ($this->session->has("session-login")){
+            return $this->response->redirect('/');
+        }
         $request = new Request();
         if ($request->isPost()){
        
@@ -34,6 +37,15 @@ class LoginController extends Controller
        
     
         return $this->view->pick('login/index');  
+    }
+    public function logoutAction()
+    {
+        if ($this->session->has("session-login")){
+            $this->session->remove("session-login");
+        }
+       
+    
+        return $this->response->redirect('/login');
     }
     public function CheckEmailPasswordAction (){
 

@@ -21,6 +21,11 @@ $router->add('/login', [
     'controller' => 'Login',
     'action' => 'index',
 ]);
+$router->add('/logout', [
+    'namespace' => 'App\Controllers',
+    'controller' => 'Login',
+    'action' => 'logout',
+]);
 $router->add('/Ajax/CheckSubmitLogin', [
     'namespace' => 'App\Controllers',
     'controller' => 'Login',
