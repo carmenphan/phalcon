@@ -35,6 +35,21 @@ class LoginController extends Controller
     
         return $this->view->pick('login/index');  
     }
-   
+    public function CheckEmailPasswordAction (){
+
+        $request = new Request();
+        if ($request->isPost()){
+            $user = new UserExtends();
+            $user->username = $request->getPost("username") ;
+            $user->password = md5($request->getPost("password"));
+           
+            $result = $user->CheckUser();
+            if ( $result ) {
+                echo "true";die();
+            }
+            echo "false";die();
+         
+        }
+    }
 }
 

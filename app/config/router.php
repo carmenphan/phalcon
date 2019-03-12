@@ -21,6 +21,11 @@ $router->add('/login', [
     'controller' => 'Login',
     'action' => 'index',
 ]);
+$router->add('/Ajax/CheckSubmitLogin', [
+    'namespace' => 'App\Controllers',
+    'controller' => 'Login',
+    'action' => 'CheckEmailPassword',
+]);
 //getDataList
 $router->add('/getDataList', [
     'namespace' => 'App\Controllers',

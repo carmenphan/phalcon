@@ -2,7 +2,12 @@
 use Phalcon\Flash\Session as FlashSession;
 $flash = new FlashSession();
 ?>
-
+<style>
+	.message {
+		color : red ;
+		padding :5px;
+	}
+</style>
 <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 <script>
         addEventListener("load", function () {
@@ -16,7 +21,7 @@ $flash = new FlashSession();
     <!-- //Meta-Tags -->
 	
 	
-	<link href="<?=$base_url?>/public/css/login.css" rel="stylesheet" type="text/css" media="all"/>
+<link href="<?=$base_url?>/public/css/login.css" rel="stylesheet" type="text/css" media="all"/>
 <div class="signupform">
 	<div class="container">
 		<!-- main content -->
@@ -31,24 +36,31 @@ $flash = new FlashSession();
 			<div class="w3_info">
 				<h2>Login to your Account</h2>
 				<p>Enter your details to login.</p>
-				<form action="" method="post">
+				<form action="" method="post" id = "form-login">
 					<label>User Name</label>
 					<div class="input-group">
 					
-						<input type="text" placeholder="User Name" name = "username" required=""> 
+						<input id = "input-username" type="text" placeholder="User Name" name = "username" required=""> 
+						
 					</div>
+				
 					<label>Password</label>
 					<div class="input-group">
 	
-						<input type="Password" placeholder="Password" required="" name = "password">
+						<input id = 'input-password' type="Password" placeholder="Password" required="" name = "password">
+						
                     </div>
+				
                         <?php $err_mes = $flash->getMessages("error") ;?>
                         <?php if (!empty($err_mes)) : ?>
                         <?php foreach ($err_mes as $value):?>
                         <p class="account"><a ><?=$value?></a></p> <br>
                         <?php endforeach ;?>
                         <?php endif;?>
-						<button class="btn btn-danger btn-block" type="submit">Login</button >                
+						<button class="btn btn-danger btn-block" type="button">Login</button >   
+						<div class = " message account">
+						
+						</div>             
 				</form>
 			
 		
@@ -58,5 +70,24 @@ $flash = new FlashSession();
 	</div>
 	<!-- footer -->
 	<div class="footer">
-		<p>&copy; 2019 Business login form. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="blank">CuongPhan</a></p>
+		<p>&copy; 2019 Business login form. All Rights Reserved | Design by <a href="" target="blank">CuongPhan</a></p>
+	</div>
+	<div class="modal" tabindex="-1" role="dialog" id = "myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">QR Code</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+		
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary save-qr-code">Save changes</button>
+				
+			</div>
+			</div>
+		</div>
 	</div>
