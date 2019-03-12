@@ -93,8 +93,6 @@ class IndexController extends ControllerBase
                 }
                 
                 $this->flashSession->success('Finish Save Employee');
-                //$this->flashSession->success('Your information was stored correctly!');
-
 
                 return $this->response->redirect('/');
                 

@@ -11,12 +11,15 @@ $loader = new \Phalcon\Loader();
 $loader->registerDirs(
     [
         $config->application->controllersDir,
-        $config->application->modelsDir
+        $config->application->modelsDir,
+        $config->application->libraryDir
     ]
 )->register();  
 $loader->registerNamespaces([
     'App\Controllers' => APP_PATH . '/controllers/',
     'App\Models' => APP_PATH . '/models/',
-    'App\Models\Employees' => APP_PATH . '/models/Employees/',
+    'App\Libraries' => APP_PATH . '/library/'
 ]);
+
+
 $loader->register();

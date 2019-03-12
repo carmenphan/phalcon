@@ -16,6 +16,11 @@ $router->add('/404', [
     'action' => 'page404',
 
 ]);
+$router->add('/login', [
+    'namespace' => 'App\Controllers',
+    'controller' => 'Login',
+    'action' => 'index',
+]);
 //getDataList
 $router->add('/getDataList', [
     'namespace' => 'App\Controllers',
