@@ -1,13 +1,21 @@
 <?php
+namespace App\Controllers;
+use App\Controllers\ControllerBase;
 use Phalcon\Http\Request;
 use Phalcon\Flash\Direct as FlashDirect;
 use Phalcon\Flash\Session as FlashSession;
+use App\Models\Employees;
+use App\Models\Position;
+use App\Models\Department;
+
 class IndexController extends ControllerBase
 {
 
+    
     public function getDataListAction()
     {
       
+        
         $request = new Request();
 
         $em = new Employees();
@@ -16,9 +24,10 @@ class IndexController extends ControllerBase
         $em->searchData = $request->get("search")['value'];
         $em->orderby = array ("column" => $em->convertOrderByList($request->get("order")[0]['column']) , "dir"=> $request->get("order")[0]['dir']);
         $data = $em->getListAll();
-        $filterData = $em->getResultFilter();
-        $arr = array ("draw" => $request->get('draw') , "recordsTotal" =>  Employees::count() , "recordsFiltered" => $filterData , "data" => $data );
-        return  json_encode($arr);
+         $filterData = $em->getResultFilter();
+         $arr = array ("draw" => $request->get('draw') , "recordsTotal" =>  Employees::count() , "recordsFiltered" => intval($filterData) , "data" => $data );
+         return  json_encode($arr);
+        
       
     }
 
@@ -45,7 +54,7 @@ class IndexController extends ControllerBase
     }
     public function indexAction()
     {
-        
+       
     
         return $this->view->pick('index/index');  
     }

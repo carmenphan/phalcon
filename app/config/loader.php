@@ -14,3 +14,9 @@ $loader->registerDirs(
         $config->application->modelsDir
     ]
 )->register();  
+$loader->registerNamespaces([
+    'App\Controllers' => APP_PATH . '/controllers/',
+    'App\Models' => APP_PATH . '/models/',
+    'App\Models\Employees' => APP_PATH . '/models/Employees/',
+]);
+$loader->register();

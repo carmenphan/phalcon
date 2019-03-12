@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Models;
 class Position extends \Phalcon\Mvc\Model
 {
 

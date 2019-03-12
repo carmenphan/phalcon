@@ -1,5 +1,5 @@
 <?php
-
+namespace App\Models;
 class Employees extends \Phalcon\Mvc\Model
 {
 
@@ -51,12 +51,12 @@ class Employees extends \Phalcon\Mvc\Model
      */
     public $updateAt;
     // @var string table name 
-    public $table = "Employees";
+    public $table = "App\Models\Employees";
     // @var string table position name 
     
-    public $table_position = "Position";
+    public $table_position = "App\Models\Position";
     // @var string table deparment name
-    public $table_department = "Department";
+    public $table_department = "App\Models\Department";
 
     // object department
     public $department;
@@ -111,10 +111,10 @@ class Employees extends \Phalcon\Mvc\Model
     
     function getListAll(){
 
-     
+        
         $data = $this->getModelsManager()->createBuilder()
 
-        ->addFrom( $this->table , 'e')
+        ->addFrom( "App\Models\Employees" , 'e')
 
         ->columns(
             array(
@@ -128,13 +128,15 @@ class Employees extends \Phalcon\Mvc\Model
                 'd.name as department_name'
             )
         )
-        ->leftJoin($this->table_position, 'p.id = e.position_id', 'p')
-        ->leftJoin($this->table_department, 'd.id = e.department_id', 'd')
+        ->leftJoin("App\Models\Position", 'p.id = e.position_id', 'p')
+        ->leftJoin("App\Models\Department", 'd.id = e.department_id', 'd')
         ->orderBy($this->orderby['column'] . " " . $this->orderby['dir'])
         ->where('e.fullname LIKE :name:  or p.name LIKE :name: or d.name LIKE :name:', ['name' => '%' . $this->searchData . '%'])
         ->limit($this->limit,$this->start)->getQuery()->execute();
-
+        
+     
         if (count($data) == 0) return [];
+
         $result = [];
         foreach ($data as $key => $val ){
             $result[$key][] = $val->id;
