@@ -6,11 +6,17 @@
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
 defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 
-$config = array ("host" => "localhost" , 'user' => "root" , "password" => "");
-if (file_exists(__DIR__."/eav.json")){
+$config = array ("host" => "localhost" , 'user' => "root" , "password" => "123");
+if (file_exists(__DIR__."/eav.php")){
     
-    $string_json  = file_get_contents(__DIR__."/eav.json");
-    $config = json_decode($string_json, true);
+    
+    $file = file(__DIR__."/eav.php");
+
+    foreach ($file as $row ){
+       
+        $array = explode(',', $row);
+        $config["'" . $array[0]."'"] = "'" . $array[1] . "'";
+    }
 }
 
 return new \Phalcon\Config([

@@ -9,7 +9,7 @@ class ControllerBase extends Controller
         
        
 
-        if (!file_exists(__DIR__."/../config/eav.json")){
+        if (!file_exists(__DIR__."/../config/eav.php")){
             return $this->response->redirect('/setup');
         }
         

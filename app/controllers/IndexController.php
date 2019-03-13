@@ -87,7 +87,7 @@ class IndexController extends ControllerBase
                 }
                 catch(\Exception $e )
                 {
-                    echo( $e );
+                   
                     $this->flashSession->error("Can't Save Employee");
                     return $this->response->redirect('/');
                 }

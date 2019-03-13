@@ -14,7 +14,7 @@ class SetupController extends Controller
 
     public function indexAction()
     {
-        if (file_exists(__DIR__."/../config/eav.json")){
+        if (file_exists(__DIR__."/../config/eav.php")){
             return $this->response->redirect('/');
         }
         $request = new Request();
@@ -43,10 +43,19 @@ class SetupController extends Controller
             
             $createUser = $this->CreateUser($info_db,$request->getPost("user"));
 
-            $fp = fopen(__DIR__."/../config/eav.json", 'w');
-            fwrite($fp, json_encode($info_db, JSON_PRETTY_PRINT));
+            $fp = fopen(__DIR__."/../config/eav.php", 'w');
+        
+            foreach ($info_db as $key =>  $value ){
+                fwrite($fp , $key .",".$value.PHP_EOL);
+
+            }
+
+            
+          
             fclose($fp);
-            chmod(__DIR__."/../config/eav.json", 0777); 
+            
+            chmod(__DIR__."/../config/eav.pgp", 0777); 
+        
             return $this->response->redirect('/login');
             
         }

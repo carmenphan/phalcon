@@ -10,7 +10,18 @@ use App\Models\Department;
 
 class LoginController extends Controller
 {
+    public function initialize()
+    {
+        
+       
 
+        if (!file_exists(__DIR__."/../config/eav.php")){
+            return $this->response->redirect('/setup');
+        }
+        
+       
+      
+    }
     public function indexAction()
     {
         if ($this->session->has("session-login")){
