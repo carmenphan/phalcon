@@ -1,0 +1,44 @@
+<?php
+    use Phalcon\Flash\Session as FlashSession;
+    $flash = new FlashSession();
+?>
+<link href="<?=$base_url?>/public/css/setup.css" rel="stylesheet" type="text/css" media="all" />
+<link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+<div class="main">
+		<div class="main-w3l">
+			<h1 class="logo-w3"></h1>
+			<div class="w3layouts-main">
+				
+					<form action="" method="post">
+                        <h2><span>Setup Database</span></h2>
+						<input placeholder="Hosting" name="db[host]" type="text">
+						<input placeholder="User Login Database" name="db[user]" type="text" required="">
+						
+                        <input placeholder="Password Login Database" name="db[password]" type="password" required="">
+                        <h2><span>Setup Admin User</span></h2>
+                        <input placeholder="Name Admin" name="user[name]" type="text"  required="">
+                        <input placeholder="Username" name="user[username]" type="text"  required="">
+                        <input placeholder="Password" name="user[password]" type="password"  required="">
+                        <?php $err_mes = $flash->getMessages("error") ;?>
+                        <?php if (!empty($err_mes)) : ?>
+                        <?php foreach ($err_mes as $value):?>
+                        <p class="account"><?=$value?></p> <br>
+                        <?php endforeach ;?>
+                        <?php endif;?>
+						<input type="submit" value="Get Started" name="login">
+					</form>
+			</div>
+			<!-- //main -->
+			
+			<!-- password-script -->
+			
+			<!-- //password-script -->
+
+			<!--footer-->
+			<div class="footer-w3l">
+				<p>&copy; 2018 Space Register Form. All rights reserved | Design by <a href="http://w3layouts.com">Cuong Phan</a></p>
+			</div>
+			<!--//footer-->
+			
+		</div>
+	</div>

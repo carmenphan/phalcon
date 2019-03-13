@@ -6,12 +6,19 @@
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
 defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
 
+$config = array ("host" => "localhost" , 'user' => "root" , "password" => "");
+if (file_exists(__DIR__."/eav.json")){
+    
+    $string_json  = file_get_contents(__DIR__."/eav.json");
+    $config = json_decode($string_json, true);
+}
+
 return new \Phalcon\Config([
     'database' => [
         'adapter'     => 'Mysql',
-        'host'        => 'localhost',
-        'username'    => 'root',
-        'password'    => '123',
+        'host'        => $config['host'],
+        'username'    => $config['user'],
+        'password'    => $config['password'],
         'dbname'      => 'ERP_HRM',
         'charset'     => 'utf8',
     ],

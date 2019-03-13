@@ -7,7 +7,7 @@ use Phalcon\Flash\Session as FlashSession;
 use App\Models\Employees;
 use App\Models\Position;
 use App\Models\Department;
-
+use App\Models\EmployeesExtends;    
 class IndexController extends ControllerBase
 {
 
@@ -18,7 +18,7 @@ class IndexController extends ControllerBase
         
         $request = new Request();
 
-        $em = new Employees();
+        $em = new EmployeesExtends();
         $em->start = $request->get("start");
         $em->limit = $request->get("length");
         $em->searchData = $request->get("search")['value'];

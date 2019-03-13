@@ -6,7 +6,17 @@ class ControllerBase extends Controller
 {
     public function initialize()
     {
+        
+       
+
+        if (!file_exists(__DIR__."/../config/eav.json")){
+            return $this->response->redirect('/setup');
+        }
+        
+       
         // check login 
+        
+
         if (!$this->CheckLogin()) {
             return $this->response->redirect('/login');
         }

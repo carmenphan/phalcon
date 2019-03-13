@@ -9,6 +9,11 @@ $router->add('/', [
     'controller' => "index",
     'action' => "index"
 ]);
+$router->add('/setup', [
+    'namespace' => 'App\Controllers',
+    'controller' => "Setup",
+    'action' => "index"
+]);
 // Define your routes here
 $router->add('/404', [
     'namespace' => 'App\Controllers',
